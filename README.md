@@ -25,3 +25,15 @@ Depois de ter o Node.js instalado, você pode instalar o Yarn usando o npm, que 
 
 ```bash
 npm install --global yarn
+```
+
+Após ter instalado o Yarn e o Node.js, você deve instalar as dependências do projeto, na pasta raiz do projeto execute o comando no terminal:
+
+```bash
+yarn install
+```
+
+Agora você pode executar o comando abaixo no terminal na pasta raiz do projeto para executar o projeto
+
+```bash
+yarn start
