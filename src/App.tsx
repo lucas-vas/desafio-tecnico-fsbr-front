@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './pages/Login';
+import RegisterPage from './pages/Register';
+import HomePage from './pages/Home'; 
+import './style.css';
+import RegisterCarPage from './pages/Car/RegisterCar';
+import RegisterBrandPage from './pages/Brand/RegisterBrand';
+import ListCarPage from './pages/Car/ListCar';
+import UpdateCarPage from './pages/Car/UpdateCar';
+import ListBrandPage from './pages/Brand/ListBrand';
+import UpdateBrandPage from './pages/Brand/UpdateBrand';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/home" element={<HomePage />}>
+          <Route path="list-car" element={<ListCarPage />} />
+          <Route path="register-car" element={<RegisterCarPage />} />
+          <Route path="update-car/:carName" element={<UpdateCarPage />} />
+          <Route path="list-brand" element={<ListBrandPage />} />
+          <Route path="register-brand" element={<RegisterBrandPage />} />
+          <Route path="update-brand/:brandName" element={<UpdateBrandPage />} />
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
